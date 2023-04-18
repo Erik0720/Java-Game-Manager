@@ -25,11 +25,11 @@ public class Square extends JLabel {
         g.setColor(Color.lightGray);
         g.fillRect(x,y,90,90);
         if(value == 1) {
-            g.setColor(Color.RED);
-            g.fillOval(x+20,y+20,50,50);
+            g.setColor(Color.RED);      // Set the color to red
+            g.fillOval(x+20,y+20,50,50);    // Draw a circle
         } else if(value == 2) {
-            g.setColor(Color.BLUE);
-            g.fillOval(x+20,y+20,50,50);
+            g.setColor(Color.BLUE);     // Set the color to blue
+            g.fillOval(x+20,y+20,50,50);    // Draw a circle
         }
     }
 
