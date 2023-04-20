@@ -13,11 +13,15 @@ public class TicTacToeBoard extends JComponent {
     private JTabbedPane tabbedPane;
     private Square[][] squares;
     private int turn = 1;
+    private MouseAdapter squareListener;
+    private MouseAdapter labelbackListener;
 
 
     public TicTacToeBoard(JTabbedPane tabbedPane) {
         this.tabbedPane = tabbedPane;
-        initiate();
+        initialiseListeners();
+        initiateUi();
+        initiateGame();
     }
 
     @Override
@@ -35,50 +39,27 @@ public class TicTacToeBoard extends JComponent {
 
     }
 
-    public void initiate() {
-        JLabel labelBack = new JLabel("Back");
-        labelBack.setFont(new Font("Arial", Font.PLAIN, 16));
-        labelBack.setForeground(Color.WHITE);
-        labelBack.setBounds(20, 0, 100, 50);
-
-        labelBack.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                tabbedPane.setSelectedIndex(3);     // Go back to the menu
-            }
-        });
-        this.add(labelBack);
-
-
+    public void initiateGame() {
         turn = 1;       // Reset the turn to 1
         squares = new Square[3][3];     // Create a new 3x3 array of squares
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 squares[i][j] = new Square(0, (j + 2) * 100, (i + 1) * 100, false);     // Create a new square
-                squares[i][j].addMouseListener(new MouseAdapter() {     // Add a mouse listener to each square
-
-                    @Override
-                    public void mouseClicked(MouseEvent e) {    // When a square is clicked it will change the value of the square
-                                                                // and repaint the square with the new value and color
-                        if (!((Square)e.getSource()).isSet()) {
-                            ((Square)e.getSource()).setValue(turn);
-                            ((Square)e.getSource()).setSet(true);
-                            ((Square)e.getSource()).repaint();
-
-                            if (turn == 1) {
-                                turn = 2;
-                            } else {
-                                turn = 1;
-                            }
-
-                            checkWin();
-                        }
-                    }
-                });
+                squares[i][j].addMouseListener(squareListener);     // Add a mouse listener to the square
                 this.add(squares[i][j]);    // Add the square to the board
             }
         }
+    }
+
+    public void initiateUi() {
+        JLabel labelBack = new JLabel("Back");
+        labelBack.setFont(new Font("Arial", Font.PLAIN, 16));
+        labelBack.setForeground(Color.WHITE);
+        labelBack.setBounds(20, 0, 100, 50);
+
+        labelBack.addMouseListener(labelbackListener);
+        this.add(labelBack);
     }
 
     public void checkWin() {
@@ -127,7 +108,7 @@ public class TicTacToeBoard extends JComponent {
                     this.remove(squares[i][j]);
                 }
             }
-            initiate();
+            initiateGame();
             this.repaint();
         }   else if (checkDraw()) {
             JOptionPane.showMessageDialog(null, "Draw!");
@@ -138,7 +119,7 @@ public class TicTacToeBoard extends JComponent {
                 }
             }
 
-            initiate();
+            initiateGame();
             this.repaint();
         }
     }
@@ -152,6 +133,36 @@ public class TicTacToeBoard extends JComponent {
             }
         }
         return true;
+    }
+
+    public void initialiseListeners() {
+        squareListener = new MouseAdapter() {     // Add a mouse listener to each square
+            @Override
+            public void mouseClicked(MouseEvent e) {    // When a square is clicked it will change the value of the square
+                // and repaint the square with the new value and color
+                if (((Square)e.getSource()).isSet()) {
+                    return;
+                }
+
+                ((Square)e.getSource()).setValue(turn);
+                ((Square)e.getSource()).setSet(true);
+                ((Square)e.getSource()).repaint();
+                if (turn == 1) {
+                    turn = 2;
+                } else {
+                    turn = 1;
+                }
+
+                checkWin();
+            }
+        };
+
+        new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                tabbedPane.setSelectedIndex(3);     // Go back to the menu
+            }
+        };
     }
 
 }

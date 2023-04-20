@@ -5,24 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0761cb0-20e3-464c-950b-f6cda74132f8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GamesAgainstAiJava.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Assets/Images/ConnectFour.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Assets/Images/kniffel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Assets/Images/tic-tac-toe-game.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Games/ConnectFour/ConnectFourBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Games/ConnectFour/Dot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Games/Kniffel/KniffelBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Games/TicTacToe/Square.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Games/TicTacToe/TicTacToeBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Gui.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MenuBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Games/ConnectFour/ConnectFourBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Games/ConnectFour/ConnectFourBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Games/TicTacToe/TicTacToeBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Games/TicTacToe/TicTacToeBoard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,22 +35,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Erik/OneDrive - Städt. Lindengymnasium Gummersbach/Dokumente/Coding/Java/Pathfinder Info/src/com",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Erik/OneDrive - Städt. Lindengymnasium Gummersbach/Dokumente/Coding/Java/Pathfinder Info/src/com&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="" />
@@ -90,11 +75,23 @@
       <updated>1681728323198</updated>
       <workItem from="1681728324356" duration="169000" />
       <workItem from="1681728504580" duration="25218000" />
+      <workItem from="1681970243957" duration="3141000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
