@@ -14,14 +14,14 @@ public class TicTacToeBoard extends JComponent {
     private Square[][] squares;
     private int turn = 1;
     private MouseAdapter squareListener;
-    private MouseAdapter labelbackListener;
+    private MouseAdapter labelBackListener;
 
 
     public TicTacToeBoard(JTabbedPane tabbedPane) {
         this.tabbedPane = tabbedPane;
-        initialiseListeners();
-        initiateUi();
-        initiateGame();
+        initListeners();
+        initUi();
+        initGame();
     }
 
     @Override
@@ -39,7 +39,7 @@ public class TicTacToeBoard extends JComponent {
 
     }
 
-    public void initiateGame() {
+    public void initGame() {
         turn = 1;       // Reset the turn to 1
         squares = new Square[3][3];     // Create a new 3x3 array of squares
 
@@ -52,13 +52,13 @@ public class TicTacToeBoard extends JComponent {
         }
     }
 
-    public void initiateUi() {
+    public void initUi() {
         JLabel labelBack = new JLabel("Back");
         labelBack.setFont(new Font("Arial", Font.PLAIN, 16));
         labelBack.setForeground(Color.WHITE);
         labelBack.setBounds(20, 0, 100, 50);
 
-        labelBack.addMouseListener(labelbackListener);
+        labelBack.addMouseListener(labelBackListener);
         this.add(labelBack);
     }
 
@@ -108,7 +108,7 @@ public class TicTacToeBoard extends JComponent {
                     this.remove(squares[i][j]);
                 }
             }
-            initiateGame();
+            initGame();
             this.repaint();
         }   else if (checkDraw()) {
             JOptionPane.showMessageDialog(null, "Draw!");
@@ -119,7 +119,7 @@ public class TicTacToeBoard extends JComponent {
                 }
             }
 
-            initiateGame();
+            initGame();
             this.repaint();
         }
     }
@@ -135,7 +135,7 @@ public class TicTacToeBoard extends JComponent {
         return true;
     }
 
-    public void initialiseListeners() {
+    public void initListeners() {
         squareListener = new MouseAdapter() {     // Add a mouse listener to each square
             @Override
             public void mouseClicked(MouseEvent e) {    // When a square is clicked it will change the value of the square
@@ -157,7 +157,7 @@ public class TicTacToeBoard extends JComponent {
             }
         };
 
-        new MouseAdapter() {
+        labelBackListener = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 tabbedPane.setSelectedIndex(3);     // Go back to the menu

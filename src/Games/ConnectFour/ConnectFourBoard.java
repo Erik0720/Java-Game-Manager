@@ -16,8 +16,9 @@ public class ConnectFourBoard extends JComponent {
 
     public ConnectFourBoard(JTabbedPane tabbedPane) {
         this.tabbedPane = tabbedPane;
-        initiateUi();
-        initiateGame();
+        initListeners();
+        initUi();
+        initGame();
     }
 
 
@@ -34,7 +35,7 @@ public class ConnectFourBoard extends JComponent {
         }
     }
 
-    public void initiateGame() {
+    public void initGame() {
         dots = new Dot[7][6];
         turn = 1;
         int x = 50;
@@ -50,13 +51,13 @@ public class ConnectFourBoard extends JComponent {
 
     }
 
-    public void initiateUi() {
+    public void initUi() {
         JLabel labelBack = new JLabel("Back");
         labelBack.setFont(new Font("Arial", Font.PLAIN, 16));
         labelBack.setForeground(Color.WHITE);
         labelBack.setBounds(20, 0, 100, 50);
-        this.add(labelBack);
         labelBack.addMouseListener(labelBackListener);
+        this.add(labelBack);
     }
 
     public Dot lowestDot(int x, int y) {
@@ -209,10 +210,10 @@ public class ConnectFourBoard extends JComponent {
                 this.remove(dots[i][j]);
             }
         }
-        initiateGame();
+        initGame();
     }
 
-    public void initialiseListeners() {
+    public void initListeners() {
         labelBackListener = new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
