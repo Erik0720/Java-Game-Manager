@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0761cb0-20e3-464c-950b-f6cda74132f8" name="Changes" comment="- started work on Kniffel Game&#10;- added Kniffel Game Sheet">
-      <change afterPath="$PROJECT_DIR$/src/AIPlayers/minMaxTTT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Assets/Images/kniffelGameSheet.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Games/Kniffel/KniffelSheet.java" afterDir="false" />
+    <list default="true" id="c0761cb0-20e3-464c-950b-f6cda74132f8" name="Changes" comment="- started work on AI for Tic Tac Toe">
+      <change afterPath="$PROJECT_DIR$/src/AIPlayers/TicTacToe/AIPlayerTicTacToe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Assets/kniffelGameSheet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AIPlayers/minMaxTTT.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +76,7 @@
       <workItem from="1681728324356" duration="169000" />
       <workItem from="1681728504580" duration="25218000" />
       <workItem from="1681970243957" duration="4236000" />
-      <workItem from="1682402018081" duration="2982000" />
+      <workItem from="1682402018081" duration="4911000" />
     </task>
     <task id="LOCAL-00001" summary="- various improvements in code readability">
       <created>1681974113801</created>
@@ -101,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682402740246</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- started work on AI for Tic Tac Toe">
+      <created>1682405768265</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682405768265</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +127,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="- various improvements in code readability" />
     <MESSAGE value="- started work on Kniffel Game&#10;- added Kniffel Game Sheet" />
-    <option name="LAST_COMMIT_MESSAGE" value="- started work on Kniffel Game&#10;- added Kniffel Game Sheet" />
+    <MESSAGE value="- started work on AI for Tic Tac Toe" />
+    <option name="LAST_COMMIT_MESSAGE" value="- started work on AI for Tic Tac Toe" />
   </component>
 </project>
