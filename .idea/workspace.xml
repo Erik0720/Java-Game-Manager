@@ -6,17 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c0761cb0-20e3-464c-950b-f6cda74132f8" name="Changes" comment="- various improvements in code readability">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/ConnectFour/ConnectFourBoard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/ConnectFour/ConnectFourBoard$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/ConnectFour/ConnectFourBoard$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/ConnectFour/ConnectFourBoard$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/ConnectFour/ConnectFourBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/ConnectFour/ConnectFourBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/Kniffel/KniffelBoard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/Kniffel/KniffelBoard$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/Kniffel/KniffelBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/Kniffel/KniffelBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/TicTacToe/TicTacToeBoard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/TicTacToe/TicTacToeBoard$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/TicTacToe/TicTacToeBoard$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/TicTacToe/TicTacToeBoard$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/TicTacToe/TicTacToeBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/TicTacToe/TicTacToeBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Games/ConnectFour/ConnectFourBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Games/ConnectFour/ConnectFourBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Games/Kniffel/KniffelBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Games/Kniffel/KniffelBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Games/TicTacToe/TicTacToeBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Games/TicTacToe/TicTacToeBoard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +74,8 @@
       <updated>1681728323198</updated>
       <workItem from="1681728324356" duration="169000" />
       <workItem from="1681728504580" duration="25218000" />
-      <workItem from="1681970243957" duration="4223000" />
+      <workItem from="1681970243957" duration="4236000" />
+      <workItem from="1682402018081" duration="332000" />
     </task>
     <task id="LOCAL-00001" summary="- various improvements in code readability">
       <created>1681974113801</created>
@@ -93,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681974113801</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="- various improvements in code readability">
+      <created>1681975178387</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681975178387</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

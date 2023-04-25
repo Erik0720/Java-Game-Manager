@@ -47,4 +47,6 @@ public class KniffelBoard extends JComponent {
             }
         };
     }
+
+
 }
