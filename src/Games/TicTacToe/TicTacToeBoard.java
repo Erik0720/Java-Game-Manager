@@ -12,9 +12,10 @@ public class TicTacToeBoard extends JComponent {
     private int height = 500;
     private JTabbedPane tabbedPane;
     private Square[][] squares;
-    private int turn = 1;
+    private int turn = 1;    // 1 = red, 2 = blue
     private MouseAdapter squareListener;
     private MouseAdapter labelBackListener;
+    private GameTree gT;
 
 
     public TicTacToeBoard(JTabbedPane tabbedPane) {
@@ -22,6 +23,7 @@ public class TicTacToeBoard extends JComponent {
         initListeners();
         initUi();
         initGame();
+        gT = new GameTree(squares);
     }
 
     @Override
@@ -67,61 +69,37 @@ public class TicTacToeBoard extends JComponent {
 
         // Check rows for win
         for (int i = 0; i < 3; i++) {
-            if (squares[i][0].getValue() == squares[i][1].getValue() && squares[i][1].getValue() == squares[i][2].getValue() && squares[i][0].getValue() != 0) {
-                if (squares[i][0].getValue() == 1) {
-                    winner = 1;
-                } else {
-                    winner = 2;
-                }
-            }
+            if (squares[i][0].getValue() == squares[i][1].getValue() && squares[i][1].getValue() == squares[i][2].getValue() && squares[i][0].getValue() != 0)
+                winner = squares[i][0].getValue();
+
         }
         // Check columns for win
-        for (int i = 0; i < 3; i++) {
-            if (squares[0][i].getValue() == squares[1][i].getValue() && squares[1][i].getValue() == squares[2][i].getValue() && squares[0][i].getValue() != 0) {
-                if (squares[0][i].getValue() == 1) {
-                    winner = 1;
-                } else {
-                    winner = 2;
-                }
-            }
-        }
+        for (int i = 0; i < 3; i++)
+            if (squares[0][i].getValue() == squares[1][i].getValue() && squares[1][i].getValue() == squares[2][i].getValue() && squares[0][i].getValue() != 0)
+                winner = squares[0][i].getValue();
+
+
         // Check diagonals for win
-        if (squares[0][0].getValue() == squares[1][1].getValue() && squares[1][1].getValue() == squares[2][2].getValue() && squares[0][0].getValue() != 0) {
-            if (squares[0][0].getValue() == 1) {
-                winner = 1;
-            } else {
-                winner = 2;
-            }
-        }
-        if (squares[0][2].getValue() == squares[1][1].getValue() && squares[1][1].getValue() == squares[2][0].getValue() && squares[0][2].getValue() != 0) {
-            if (squares[0][2].getValue() == 1) {
-                winner = 1;
-            } else {
-                winner = 2;
-            }
-        }
+        if (squares[0][0].getValue() == squares[1][1].getValue() && squares[1][1].getValue() == squares[2][2].getValue() && squares[0][0].getValue() != 0)
+            winner = squares[0][0].getValue();
 
-        if (winner != 0) {
-            JOptionPane.showMessageDialog(null, "Player " + winner + " wins!");
-            for(int i = 0; i < 3; i++) {
-                for(int j = 0; j < 3; j++) {
-                    this.remove(squares[i][j]);
-                }
-            }
-            initGame();
-            this.repaint();
-        }   else if (checkDraw()) {
+        if (squares[0][2].getValue() == squares[1][1].getValue() && squares[1][1].getValue() == squares[2][0].getValue() && squares[0][2].getValue() != 0)
+            winner = squares[0][2].getValue();
+
+
+        if (winner == 0)    // If there is no winner, return
+            return;
+        if (checkDraw())    // If there is a draw, display a draw
             JOptionPane.showMessageDialog(null, "Draw!");
+        else    // If there is no Draw, display the winner
+            JOptionPane.showMessageDialog(null, "Player " + winner + " wins!");
 
-            for(int i = 0; i < 3; i++) {
-                for(int j = 0; j < 3; j++) {
-                    this.remove(squares[i][j]);
-                }
-            }
+        for(int i = 0; i < 3; i++)
+            for(int j = 0; j < 3; j++)
+                this.remove(squares[i][j]);     // Remove all the squares from the board
 
-            initGame();
-            this.repaint();
-        }
+        initGame();     // Reset the game
+        this.repaint();     // Repaint the board
     }
 
     public boolean checkDraw() {
@@ -139,20 +117,21 @@ public class TicTacToeBoard extends JComponent {
         squareListener = new MouseAdapter() {     // Add a mouse listener to each square
             @Override
             public void mouseClicked(MouseEvent e) {    // When a square is clicked it will change the value of the square
-                // and repaint the square with the new value and color
-                if (((Square)e.getSource()).isSet()) {
+                Square temp = (Square)e.getSource();    // and repaint the square with the new value and color
+
+                if (temp.isSet()) {
                     return;
                 }
 
-                ((Square)e.getSource()).setValue(turn);
-                ((Square)e.getSource()).setSet(true);
-                ((Square)e.getSource()).repaint();
+                temp.setValue(turn);
+                temp.setSet(true);
+                temp.repaint();
+                gT.setNodeUsed(temp.getX(), temp.getY(), turn);
                 if (turn == 1) {
                     turn = 2;
                 } else {
                     turn = 1;
                 }
-
                 checkWin();
             }
         };

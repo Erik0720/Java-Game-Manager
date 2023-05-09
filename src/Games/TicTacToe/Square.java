@@ -48,4 +48,12 @@ public class Square extends JLabel {
     public void setValue(int value) {
         this.value = value;
     }
+
+    public int getX() {
+        return (x / 100)-1;
+    }
+
+    public int getY() {
+        return (y / 100)-2;
+    }
 }

@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0761cb0-20e3-464c-950b-f6cda74132f8" name="Changes" comment="- implemented minimax algorithm for Tic tac Toe">
-      <change afterPath="$PROJECT_DIR$/src/Games/TicTacToe/GameTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Games/TicTacToe/Node.java" afterDir="false" />
+    <list default="true" id="c0761cb0-20e3-464c-950b-f6cda74132f8" name="Changes" comment="- started work on TicTacToe Game Tree">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AIPlayers/TicTacToe/AIPlayerTicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AIPlayers/TicTacToe/AIPlayerTicTacToe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Games/TicTacToe/GameTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Games/TicTacToe/GameTree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Games/TicTacToe/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Games/TicTacToe/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Games/TicTacToe/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Games/TicTacToe/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Games/TicTacToe/TicTacToeBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Games/TicTacToe/TicTacToeBoard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +79,8 @@
       <workItem from="1681728504580" duration="25218000" />
       <workItem from="1681970243957" duration="4236000" />
       <workItem from="1682402018081" duration="4946000" />
-      <workItem from="1683179778428" duration="2079000" />
+      <workItem from="1683179778428" duration="3715000" />
+      <workItem from="1683611645614" duration="4273000" />
     </task>
     <task id="LOCAL-00001" summary="- various improvements in code readability">
       <created>1681974113801</created>
@@ -115,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682407117990</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="- started work on TicTacToe Game Tree">
+      <created>1683184193313</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1683184193313</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +147,7 @@
     <MESSAGE value="- started work on Kniffel Game&#10;- added Kniffel Game Sheet" />
     <MESSAGE value="- started work on AI for Tic Tac Toe" />
     <MESSAGE value="- implemented minimax algorithm for Tic tac Toe" />
-    <option name="LAST_COMMIT_MESSAGE" value="- implemented minimax algorithm for Tic tac Toe" />
+    <MESSAGE value="- started work on TicTacToe Game Tree" />
+    <option name="LAST_COMMIT_MESSAGE" value="- started work on TicTacToe Game Tree" />
   </component>
 </project>

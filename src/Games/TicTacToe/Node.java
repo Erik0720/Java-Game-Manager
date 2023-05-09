@@ -4,8 +4,10 @@ public class Node {
     private int value;
     private Node[] children;
     private Node[] parents;
+    private int x;
+    private int y;
 
-    public Node(int value, Node[] parents) {
+    public Node(int value, Node[] parents, int x, int y) {
         this.value = value;
         this.parents = parents;
     }
@@ -14,6 +16,8 @@ public class Node {
         this.value = value;
         this.children = children;
         this.parents = parents;
+        this.x = x;
+        this.y = y;
     }
 
     public int getValue() {
@@ -61,5 +65,11 @@ public class Node {
         children = temp;
     }
 
+    public int getX() {
+        return x;
+    }
 
+    public int getY() {
+        return y;
+    }
 }
