@@ -10,12 +10,15 @@ public class ConnectFourBoard extends JComponent {
     private Dot[][] dots;
     private int padding = 5;
     private int turn = 1;
+    private MouseAdapter labelBackListener;
+    private MouseAdapter dotListener;
 
 
     public ConnectFourBoard(JTabbedPane tabbedPane) {
         this.tabbedPane = tabbedPane;
-        ui();
-        initialise();
+        initListeners();
+        initUi();
+        initGame();
     }
 
 
@@ -32,7 +35,7 @@ public class ConnectFourBoard extends JComponent {
         }
     }
 
-    public void initialise() {
+    public void initGame() {
         dots = new Dot[7][6];
         turn = 1;
         int x = 50;
@@ -42,64 +45,28 @@ public class ConnectFourBoard extends JComponent {
             for(int j = 0; j < dots[i].length; j++) {
                 dots[i][j] = new Dot(0,(i+3)*50 , 300-j*50);
                 this.add(dots[i][j]);
-                dots[i][j].addMouseListener(new MouseAdapter() {
-                    @Override
-                    public void mouseClicked(MouseEvent e) {
-
-                        for(int i = 0; i < dots.length; i++) {
-                            for(int j = 0; j < dots[i].length; j++) {
-                                if(dots[i][j] == e.getSource() && dots[i][j].getValue() == 0) {
-
-                                    lowestDot(i,j).setValue(turn);
-                                    lowestDot(i,j).repaint();
-
-                                    if(checkWin()) {
-                                        JOptionPane.showMessageDialog(null, "Player " + turn + " wins!");
-                                        reset();
-                                        initialise();
-
-                                    }else if(checkDraw()) {
-                                        JOptionPane.showMessageDialog(null, "Draw!");
-                                        reset();
-                                        initialise();
-                                    }
-
-                                    if(turn == 1) turn = 2;
-                                    else turn = 1;
-                                }
-                            }
-                        }
-                        repaint();
-                    }
-                });
+                dots[i][j].addMouseListener(dotListener);
             }
         }
 
     }
 
-    public void ui() {
+    public void initUi() {
         JLabel labelBack = new JLabel("Back");
         labelBack.setFont(new Font("Arial", Font.PLAIN, 16));
         labelBack.setForeground(Color.WHITE);
         labelBack.setBounds(20, 0, 100, 50);
+        labelBack.addMouseListener(labelBackListener);
         this.add(labelBack);
-        labelBack.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                tabbedPane.setSelectedIndex(3);     // Go back to the menu
-            }
-        });
     }
 
     public Dot lowestDot(int x, int y) {
         int j = y;
         while(j > 0) {
-            if(dots[x][j-1] != null && dots[x][j-1].getValue() == 0) {
-                j = j - 1;
-                System.out.println("X: " + x + " Y: " + j);
-            }   else {
+            if(dots[x][j-1] == null || dots[x][j-1].getValue() != 0) {
                 break;
             }
+            j = j - 1;
         }
         return dots[x][j];
     }
@@ -107,10 +74,11 @@ public class ConnectFourBoard extends JComponent {
     public boolean checkWin() {
         for(int i = 0; i < dots.length; i++) {
             for(int j = 0; j < dots[i].length; j++) {
-                if(dots[i][j].getValue() != 0) {
-                    if(checkHorizontal(i,j) || checkVertical(i,j) || checkDiagonal(i,j)) {
-                        return true;
-                    }
+                if(dots[i][j].getValue() == 0) {
+                    continue;
+                }
+                if(checkHorizontal(i,j) || checkVertical(i,j) || checkDiagonal(i,j)) {
+                    return true;
                 }
             }
         }
@@ -242,5 +210,45 @@ public class ConnectFourBoard extends JComponent {
                 this.remove(dots[i][j]);
             }
         }
+        initGame();
     }
+
+    public void initListeners() {
+        labelBackListener = new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                tabbedPane.setSelectedIndex(3);     // Go back to the menu
+            }
+        };
+
+        dotListener = new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+                for(int i = 0; i < dots.length; i++) {
+                    for(int j = 0; j < dots[i].length; j++) {
+                        if(dots[i][j] != e.getSource() || dots[i][j].getValue() != 0) {
+                            continue;
+                        }
+                        lowestDot(i,j).setValue(turn);
+                        lowestDot(i,j).repaint();
+
+                        if(checkWin()) {
+                            JOptionPane.showMessageDialog(null, "Player " + turn + " wins!");
+                            reset();
+
+                        }else if(checkDraw()) {
+                            JOptionPane.showMessageDialog(null, "Draw!");
+                            reset();
+                        }
+
+                        if(turn == 1) turn = 2;
+                        else turn = 1;
+                        }
+                    }
+                repaint();
+            }
+        };
+    }
+
 }
