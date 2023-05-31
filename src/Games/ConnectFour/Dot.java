@@ -22,11 +22,11 @@ public class Dot extends JLabel {
         g.setColor(Color.lightGray);
         g.fillOval(x, y, 50, 50);
 
-        if(value == 1) {
+        if(value == -1) {
             g.setColor(Color.RED);
             g.fillOval(x, y, 50, 50);
         }
-        else if(value == 2) {
+        else if(value == 1) {
             g.setColor(Color.YELLOW);
             g.fillOval(x, y, 50, 50);
         }

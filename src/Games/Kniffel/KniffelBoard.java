@@ -7,14 +7,11 @@ import java.awt.event.MouseEvent;
 
 public class KniffelBoard extends JComponent {
     private JTabbedPane tabbedPane;
-    private MouseAdapter labelBackListener;
 
 
-    public KniffelBoard(JTabbedPane tabbedPane) {
+    public KniffelBoard(JTabbedPane tabbedPane, boolean multiPlayer) {
         this.tabbedPane = tabbedPane;
-        initListeners();
-        initUi();
-        initGame();
+        initialise();
     }
 
     public void paintComponent(Graphics g) {
@@ -24,29 +21,19 @@ public class KniffelBoard extends JComponent {
         g.fillRect(14,12,50,25);
     }
 
-    public void initGame() {
-
-    }
-
-    public void initUi() {
+    public void initialise() {
         JLabel labelBack = new JLabel("Back");
         labelBack.setFont(new Font("Arial", Font.PLAIN, 16));
         labelBack.setForeground(Color.WHITE);
         labelBack.setBounds(20, 0, 100, 50);
 
-        labelBack.addMouseListener(labelBackListener);
-
-        this.add(labelBack);
-    }
-
-    public void initListeners() {
-        labelBackListener = new MouseAdapter() {
+        labelBack.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 tabbedPane.setSelectedIndex(3);     // Go back to the menu
             }
-        };
+        });
+
+        this.add(labelBack);
     }
-
-
 }

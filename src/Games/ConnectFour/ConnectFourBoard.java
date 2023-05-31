@@ -9,13 +9,16 @@ public class ConnectFourBoard extends JComponent {
     private JTabbedPane tabbedPane;
     private Dot[][] dots;
     private int padding = 5;
-    private int turn = 1;
+    private int turn = -1;
+    private boolean multiplayer;
     private MouseAdapter labelBackListener;
     private MouseAdapter dotListener;
+    private int counter = 0;
 
 
-    public ConnectFourBoard(JTabbedPane tabbedPane) {
+    public ConnectFourBoard(JTabbedPane tabbedPane, boolean multiplayer) {
         this.tabbedPane = tabbedPane;
+        this.multiplayer = multiplayer;
         initListeners();
         initUi();
         initGame();
@@ -37,7 +40,7 @@ public class ConnectFourBoard extends JComponent {
 
     public void initGame() {
         dots = new Dot[7][6];
-        turn = 1;
+        turn = -1;
         int x = 50;
         int y = 50;
 
@@ -60,24 +63,24 @@ public class ConnectFourBoard extends JComponent {
         this.add(labelBack);
     }
 
-    public Dot lowestDot(int x, int y) {
+    public Dot lowestDot(Dot[][] dotsCopy, int x, int y) {
         int j = y;
         while(j > 0) {
-            if(dots[x][j-1] == null || dots[x][j-1].getValue() != 0) {
+            if(dotsCopy[x][j-1] == null || dotsCopy[x][j-1].getValue() != 0) {
                 break;
             }
             j = j - 1;
         }
-        return dots[x][j];
+        return dotsCopy[x][j];
     }
 
-    public boolean checkWin() {
+    public boolean checkWin(Dot[][] dots,int turn) {
         for(int i = 0; i < dots.length; i++) {
             for(int j = 0; j < dots[i].length; j++) {
                 if(dots[i][j].getValue() == 0) {
                     continue;
                 }
-                if(checkHorizontal(i,j) || checkVertical(i,j) || checkDiagonal(i,j)) {
+                if(checkHorizontal(dots, i, j, turn) || checkVertical(dots, i, j, turn) || checkDiagonal(dots, i, j, turn)) {
                     return true;
                 }
             }
@@ -85,7 +88,7 @@ public class ConnectFourBoard extends JComponent {
         return false;
     }
 
-    public boolean checkHorizontal(int x, int y) {
+    public boolean checkHorizontal(Dot[][] dots, int x, int y, int turn) {
         int count = 0;
         int i = x;
         while(i < dots.length) {
@@ -111,7 +114,7 @@ public class ConnectFourBoard extends JComponent {
         return false;
     }
 
-    public boolean checkVertical(int x, int y) {
+    public boolean checkVertical(Dot[][] dots, int x, int y, int turn) {
         int count = 0;
         int j = y;
         while(j < dots[x].length) {
@@ -137,7 +140,7 @@ public class ConnectFourBoard extends JComponent {
         return false;
     }
 
-    public boolean checkDiagonal(int x, int y) {
+    public boolean checkDiagonal(Dot[][] dots, int x, int y, int turn) {
         int count = 0;
         int i = x;
         int j = y;
@@ -193,7 +196,7 @@ public class ConnectFourBoard extends JComponent {
         return false;
     }
 
-    public boolean checkDraw() {
+    public boolean checkDraw(Dot[][] dots) {
         for(int i = 0; i < dots.length; i++) {
             for(int j = 0; j < dots[i].length; j++) {
                 if(dots[i][j].getValue() == 0) {
@@ -211,6 +214,7 @@ public class ConnectFourBoard extends JComponent {
             }
         }
         initGame();
+        repaint();
     }
 
     public void initListeners() {
@@ -230,25 +234,99 @@ public class ConnectFourBoard extends JComponent {
                         if(dots[i][j] != e.getSource() || dots[i][j].getValue() != 0) {
                             continue;
                         }
-                        lowestDot(i,j).setValue(turn);
-                        lowestDot(i,j).repaint();
+                        lowestDot(dots, i,j).setValue(turn);
+                        lowestDot(dots, i,j).repaint();
+                        repaint();
 
-                        if(checkWin()) {
+                        if(checkWin(dots,turn)) {
                             JOptionPane.showMessageDialog(null, "Player " + turn + " wins!");
                             reset();
 
-                        }else if(checkDraw()) {
+                        }else if(checkDraw(dots)) {
                             JOptionPane.showMessageDialog(null, "Draw!");
                             reset();
                         }
 
-                        if(turn == 1) turn = 2;
-                        else turn = 1;
+                        if(!multiplayer) {
+                            aiMove();
+                            return;
+                        }
+
+                        if(turn == -1) turn = 1;
+                        else turn = -1;
                         }
                     }
-                repaint();
             }
         };
+    }
+
+    public void aiMove() {
+        Dot[][] dotsCopy = dots.clone();
+        Dot move;
+        Dot bestMove = null;
+        double score;
+        double bestScore = -10000;
+        for (int i = 0; i < 7; i++) {   // For each column
+            move = lowestDot(dotsCopy, i, 6);   // Get the lowest dot in the column
+            if(move.getValue() == 0) {  // If the dot is empty
+                move.setValue(1);   // Set the dot to the AI's turn
+                score = miniMax(dotsCopy, 0, false);    // Get the score of the move
+                move.setValue(0);   // Reset the dot
+
+                if(score > bestScore) { // If the score is better than the best score
+                    bestScore = score;  // Set the best score to the score
+                    bestMove = move;    // Set the best move to the move
+                }
+            }
+        }
+        if (bestMove != null)
+            bestMove.setValue(1);   // Set the best move to the AI's turn
+    }
+
+    public double miniMax(Dot[][] dotsCopy, int depth, boolean maximizingPlayer) {
+        Dot move;
+        double score;
+        double bestScore;
+
+        System.out.println(depth + " " + counter++);
+        if(checkWin(dotsCopy,1))
+            return 1 / (depth+1);
+        else if(checkDraw(dotsCopy))
+            return 0;
+        else if(checkWin(dotsCopy,-1))
+            return -1 / (depth+1);
+
+        if (maximizingPlayer) {
+            bestScore = -10000;
+            for (int i = 0; i < 7; i++) {   // For each column
+                move = lowestDot(dotsCopy, i, 5);   // Get the lowest dot in the column
+                if(move != null && move.getValue() == 0) {  // If the dot is empty
+                    move.setValue(1);   // Set the dot to the AI's turn
+                    score = miniMax(dotsCopy, depth + 1, false);    // Get the score of the move
+                    move.setValue(0);   // Reset the dot
+
+                    if(score > bestScore) { // If the score is better than the best score
+                        bestScore = score;  // Set the best score to the score
+                    }
+                }
+            }
+        }
+        else {
+            bestScore = 10000;
+            for (int i = 0; i < 7; i++) {   // For each column
+                move = lowestDot(dotsCopy, i, 5);   // Get the lowest dot in the column
+                if(move.getValue() == 0) {  // If the dot is empty
+                    move.setValue(-1);   // Set the dot to the AI's turn
+                    score = miniMax(dotsCopy, depth + 1, true);    // Get the score of the move
+                    move.setValue(0);   // Reset the dot
+
+                    if(score < bestScore) { // If the score is better than the best score
+                        bestScore = score;  // Set the best score to the score
+                    }
+                }
+            }
+        }
+        return bestScore/(depth+1);
     }
 
 }

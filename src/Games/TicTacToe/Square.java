@@ -24,10 +24,10 @@ public class Square extends JLabel {
     public void paintComponent(Graphics g) {
         g.setColor(Color.lightGray);
         g.fillRect(x,y,90,90);
-        if(value == 1) {
+        if(value == -1) {
             g.setColor(Color.RED);      // Set the color to red
             g.fillOval(x+20,y+20,50,50);    // Draw a circle
-        } else if(value == 2) {
+        } else if(value == 1) {
             g.setColor(Color.BLUE);     // Set the color to blue
             g.fillOval(x+20,y+20,50,50);    // Draw a circle
         }
@@ -50,10 +50,10 @@ public class Square extends JLabel {
     }
 
     public int getX() {
-        return (x / 100)-1;
+        return (x / 100)-2;
     }
 
     public int getY() {
-        return (y / 100)-2;
+        return (y / 100)-1;
     }
 }

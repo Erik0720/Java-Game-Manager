@@ -4,25 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0761cb0-20e3-464c-950b-f6cda74132f8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GamesAgainstAiJava.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Assets/Images/ConnectFour.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Assets/Images/kniffel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Assets/Images/tic-tac-toe-game.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Games/ConnectFour/ConnectFourBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Games/ConnectFour/Dot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Games/Kniffel/KniffelBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Games/TicTacToe/Square.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Games/TicTacToe/TicTacToeBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Gui.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MenuBoard.java" afterDir="false" />
+    <list default="true" id="c0761cb0-20e3-464c-950b-f6cda74132f8" name="Changes" comment="minor changes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/ConnectFour/ConnectFourBoard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/ConnectFour/ConnectFourBoard$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/ConnectFour/ConnectFourBoard$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/ConnectFour/ConnectFourBoard$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/ConnectFour/ConnectFourBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/ConnectFour/ConnectFourBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/ConnectFour/Dot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/ConnectFour/Dot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/Kniffel/KniffelBoard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/Kniffel/KniffelBoard$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/Kniffel/KniffelBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/Kniffel/KniffelBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/TicTacToe/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/TicTacToe/Square.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/TicTacToe/TicTacToeBoard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/TicTacToe/TicTacToeBoard$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/TicTacToe/TicTacToeBoard$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/TicTacToe/TicTacToeBoard$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/TicTacToe/TicTacToeBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Games/TicTacToe/TicTacToeBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Gui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/Gui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/MenuBoard$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/MenuBoard$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/MenuBoard$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/MenuBoard$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/MenuBoard$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/MenuBoard$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/MenuBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GamesAgainstAiJava/MenuBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Games/ConnectFour/ConnectFourBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Games/ConnectFour/ConnectFourBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Games/ConnectFour/Dot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Games/ConnectFour/Dot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Games/Kniffel/KniffelBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Games/Kniffel/KniffelBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Games/TicTacToe/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Games/TicTacToe/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Games/TicTacToe/TicTacToeBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Games/TicTacToe/TicTacToeBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MenuBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuBoard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +42,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -50,22 +60,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Erik/OneDrive - Städt. Lindengymnasium Gummersbach/Dokumente/Coding/Java/Pathfinder Info/src/com",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Erik/IdeaProjects/Java-Game-Manager&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="" />
@@ -90,13 +100,54 @@
       <updated>1681728323198</updated>
       <workItem from="1681728324356" duration="169000" />
       <workItem from="1681728504580" duration="25218000" />
+      <workItem from="1681820615918" duration="1540000" />
+      <workItem from="1685295128521" duration="9689000" />
+      <workItem from="1685368424499" duration="10719000" />
+      <workItem from="1685394693698" duration="45000" />
+      <workItem from="1685394747376" duration="1092000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="minimax_implementation" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="nodes[0][0]" />
+        <watch expression="nodes[2][0]" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
