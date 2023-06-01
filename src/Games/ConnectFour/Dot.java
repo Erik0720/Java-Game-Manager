@@ -55,4 +55,12 @@ public class Dot extends JLabel {
     public void setY(int y) {
         this.y = y;
     }
+
+    public int getI() {
+        return (x/50)-3;
+    }
+
+    public int getJ() {
+        return 6 - y/50;
+    }
 }

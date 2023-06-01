@@ -74,13 +74,13 @@ public class ConnectFourBoard extends JComponent {
         return dotsCopy[x][j];
     }
 
-    public boolean checkWin(Dot[][] dots,int turn) {
-        for(int i = 0; i < dots.length; i++) {
-            for(int j = 0; j < dots[i].length; j++) {
-                if(dots[i][j].getValue() == 0) {
+    public boolean checkWin(Dot[][] dotsCopy,int turn) {
+        for(int i = 0; i < dotsCopy.length; i++) {
+            for(int j = 0; j < dotsCopy[i].length; j++) {
+                if(dotsCopy[i][j].getValue() == 0) {
                     continue;
                 }
-                if(checkHorizontal(dots, i, j, turn) || checkVertical(dots, i, j, turn) || checkDiagonal(dots, i, j, turn)) {
+                if(checkHorizontal(dotsCopy, i, j, turn) || checkVertical(dotsCopy, i, j, turn) || checkDiagonal(dotsCopy, i, j, turn)) {
                     return true;
                 }
             }
@@ -88,11 +88,11 @@ public class ConnectFourBoard extends JComponent {
         return false;
     }
 
-    public boolean checkHorizontal(Dot[][] dots, int x, int y, int turn) {
+    public boolean checkHorizontal(Dot[][] dotsCopy, int x, int y, int turn) {
         int count = 0;
         int i = x;
-        while(i < dots.length) {
-            if(dots[i][y].getValue() == turn) {
+        while(i < dotsCopy.length) {
+            if(dotsCopy[i][y].getValue() == turn) {
                 count++;
                 i++;
             } else {
@@ -101,7 +101,7 @@ public class ConnectFourBoard extends JComponent {
         }
         i = x - 1;
         while(i >= 0) {
-            if(dots[i][y].getValue() == turn) {
+            if(dotsCopy[i][y].getValue() == turn) {
                 count++;
                 i--;
             } else {
@@ -114,11 +114,11 @@ public class ConnectFourBoard extends JComponent {
         return false;
     }
 
-    public boolean checkVertical(Dot[][] dots, int x, int y, int turn) {
+    public boolean checkVertical(Dot[][] dotsCopy, int x, int y, int turn) {
         int count = 0;
         int j = y;
-        while(j < dots[x].length) {
-            if(dots[x][j].getValue() == turn) {
+        while(j < dotsCopy[x].length) {
+            if(dotsCopy[x][j].getValue() == turn) {
                 count++;
                 j++;
             } else {
@@ -127,7 +127,7 @@ public class ConnectFourBoard extends JComponent {
         }
         j = y - 1;
         while(j >= 0) {
-            if(dots[x][j].getValue() == turn) {
+            if(dotsCopy[x][j].getValue() == turn) {
                 count++;
                 j--;
             } else {
@@ -140,11 +140,11 @@ public class ConnectFourBoard extends JComponent {
         return false;
     }
 
-    public boolean checkDiagonal(Dot[][] dots, int x, int y, int turn) {
+    public boolean checkDiagonal(Dot[][] dotsCopy, int x, int y, int turn) {
         int count = 0;
         int i = x;
         int j = y;
-        while(i < dots.length && j < dots[i].length) {
+        while(i < dotsCopy.length && j < dotsCopy[i].length) {
             if(dots[i][j].getValue() == turn) {
                 count++;
                 i++;
@@ -156,7 +156,7 @@ public class ConnectFourBoard extends JComponent {
         i = x - 1;
         j = y - 1;
         while(i >= 0 && j >= 0) {
-            if(dots[i][j].getValue() == turn) {
+            if(dotsCopy[i][j].getValue() == turn) {
                 count++;
                 i--;
                 j--;
@@ -170,8 +170,8 @@ public class ConnectFourBoard extends JComponent {
         count = 0;
         i = x;
         j = y;
-        while(i < dots.length && j >= 0) {
-            if(dots[i][j].getValue() == turn) {
+        while(i < dotsCopy.length && j >= 0) {
+            if(dotsCopy[i][j].getValue() == turn) {
                 count++;
                 i++;
                 j--;
@@ -181,8 +181,8 @@ public class ConnectFourBoard extends JComponent {
         }
         i = x - 1;
         j = y + 1;
-        while(i >= 0 && j < dots[i].length) {
-            if(dots[i][j].getValue() == turn) {
+        while(i >= 0 && j < dotsCopy[i].length) {
+            if(dotsCopy[i][j].getValue() == turn) {
                 count++;
                 i--;
                 j++;
@@ -196,9 +196,9 @@ public class ConnectFourBoard extends JComponent {
         return false;
     }
 
-    public boolean checkDraw(Dot[][] dots) {
-        for(int i = 0; i < dots.length; i++) {
-            for(int j = 0; j < dots[i].length; j++) {
+    public boolean checkDraw(Dot[][] dotsCopy) {
+        for(int i = 0; i < dotsCopy.length; i++) {
+            for(int j = 0; j < dotsCopy[i].length; j++) {
                 if(dots[i][j].getValue() == 0) {
                     return false;
                 }
@@ -229,39 +229,28 @@ public class ConnectFourBoard extends JComponent {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                for(int i = 0; i < dots.length; i++) {
-                    for(int j = 0; j < dots[i].length; j++) {
-                        if(dots[i][j] != e.getSource() || dots[i][j].getValue() != 0) {
-                            continue;
-                        }
-                        lowestDot(dots, i,j).setValue(turn);
-                        lowestDot(dots, i,j).repaint();
-                        repaint();
+                Dot dot = (Dot) e.getSource();
+                int i = dot.getI();
+                int j = dot.getJ();
+                if(dots[i][j].getValue() != 0) {
+                    return;
+                }
 
-                        if(checkWin(dots,turn)) {
-                            JOptionPane.showMessageDialog(null, "Player " + turn + " wins!");
-                            reset();
+                move(dots, dot, turn, false);
 
-                        }else if(checkDraw(dots)) {
-                            JOptionPane.showMessageDialog(null, "Draw!");
-                            reset();
-                        }
+                if(!multiplayer) {
+                    aiMove();
+                    return;
+                }
 
-                        if(!multiplayer) {
-                            aiMove();
-                            return;
-                        }
-
-                        if(turn == -1) turn = 1;
-                        else turn = -1;
-                        }
-                    }
+                if(turn == -1) turn = 1;
+                else turn = -1;
             }
         };
     }
 
     public void aiMove() {
-        Dot[][] dotsCopy = dots.clone();
+        Dot[][] dotsCopy = this.dots.clone();
         Dot move;
         Dot bestMove = null;
         double score;
@@ -269,7 +258,7 @@ public class ConnectFourBoard extends JComponent {
         for (int i = 0; i < 7; i++) {   // For each column
             move = lowestDot(dotsCopy, i, 6);   // Get the lowest dot in the column
             if(move.getValue() == 0) {  // If the dot is empty
-                move.setValue(1);   // Set the dot to the AI's turn
+                move(dotsCopy, move, 1, true);   // Set the dot to the AI's turn
                 score = miniMax(dotsCopy, 0, false);    // Get the score of the move
                 move.setValue(0);   // Reset the dot
 
@@ -291,19 +280,20 @@ public class ConnectFourBoard extends JComponent {
         System.out.println(depth + " " + counter++);
         if(checkWin(dotsCopy,1))
             return 1 / (depth+1);
-        else if(checkDraw(dotsCopy))
-            return 0;
         else if(checkWin(dotsCopy,-1))
             return -1 / (depth+1);
+        else if(checkDraw(dotsCopy))
+            return 0;
+
 
         if (maximizingPlayer) {
             bestScore = -10000;
             for (int i = 0; i < 7; i++) {   // For each column
                 move = lowestDot(dotsCopy, i, 5);   // Get the lowest dot in the column
                 if(move != null && move.getValue() == 0) {  // If the dot is empty
-                    move.setValue(1);   // Set the dot to the AI's turn
+                    move(dotsCopy, move, 1, true);
                     score = miniMax(dotsCopy, depth + 1, false);    // Get the score of the move
-                    move.setValue(0);   // Reset the dot
+                    deMove(dotsCopy, move);   // Reset the dot
 
                     if(score > bestScore) { // If the score is better than the best score
                         bestScore = score;  // Set the best score to the score
@@ -316,9 +306,9 @@ public class ConnectFourBoard extends JComponent {
             for (int i = 0; i < 7; i++) {   // For each column
                 move = lowestDot(dotsCopy, i, 5);   // Get the lowest dot in the column
                 if(move.getValue() == 0) {  // If the dot is empty
-                    move.setValue(-1);   // Set the dot to the AI's turn
+                    move(dotsCopy, move, -1, true);
                     score = miniMax(dotsCopy, depth + 1, true);    // Get the score of the move
-                    move.setValue(0);   // Reset the dot
+                    deMove(dotsCopy, move);   // Reset the dot   // Reset the dot
 
                     if(score < bestScore) { // If the score is better than the best score
                         bestScore = score;  // Set the best score to the score
@@ -327,6 +317,39 @@ public class ConnectFourBoard extends JComponent {
             }
         }
         return bestScore/(depth+1);
+    }
+
+    public void move(Dot[][] dotsCopy, Dot move, int turn, boolean simulate) {
+        int i = move.getI();
+        int j = move.getJ();
+
+        lowestDot(dotsCopy, i,j).setValue(turn);
+
+        if(!simulate) {
+            lowestDot(dotsCopy, i,j).repaint();
+            repaint();
+
+            if(checkWin(dotsCopy,turn)) {
+                if(turn == -1) {
+                    JOptionPane.showMessageDialog(null, "Red wins!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Yellow wins!");
+                }
+                reset();
+
+            }else if(checkDraw(dotsCopy)) {
+                JOptionPane.showMessageDialog(null, "Draw!");
+                reset();
+            }
+        }
+
+    }
+
+    public void deMove(Dot[][] dotsCopy, Dot move) {
+        int i = move.getI();
+        int j = move.getJ();
+
+        dotsCopy[i][j].setValue(0);
     }
 
 }
